@@ -27,9 +27,9 @@ level of complexity in command line syntax.
 
 ## Contact
 
-Please contact [Matt Munz] (https://github.com/mattmunz) if you have any difficulty or 
+Please contact [Matt Munz](https://github.com/mattmunz) if you have any difficulty or 
 to provide feedback (which would be very welcome).
 
 ## Author
 
-Matt Munz
+[Matt Munz](https://github.com/mattmunz)

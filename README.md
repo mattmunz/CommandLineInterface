@@ -4,11 +4,11 @@ A Java library for creating command line interfaces.
 
 ## Contents
 
-+ source                The source files for this library.
-++ java
-+++ production          The source files necessary for building the library.
-+++ test                The source files for automated tests, including unit tests.
-+ .*                    Project files for the Eclipse IDE.
+* source                _The source files for this library_
+  * java
+    * production        _The source files necessary for building the library_
+    * test              _The source files for automated tests, including unit tests_
+* .*                    _Project files for the Eclipse IDE_
 
 ## Release Notes
 

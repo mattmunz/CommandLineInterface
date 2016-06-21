@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+   For bootstrapping purposes only. Once Babe is built this script doesn't need to be used. 
+ -->
+<project name="CommandLineInterface" default="build">
+  
+  <description>Commands for building the CLI library</description>
+
+  <property file="build.properties"/>
+  
+  <import file="../Babe/source/xml/Component.build.xml" as=""/>
+  
+  <path id="buildPath"/>
+
+  <target name="build" description="Build the service from source">
+
+    <antcall target="buildComponent">
+      <param name="componentClasspathId" value="buildPath"/>
+    </antcall>
+  </target>
+</project>

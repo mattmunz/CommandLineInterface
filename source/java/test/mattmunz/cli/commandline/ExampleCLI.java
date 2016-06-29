@@ -1,9 +1,14 @@
-package mattmunz.cli;
+package mattmunz.cli.commandline;
 
 import static java.util.Arrays.asList; 
 import static java.util.Collections.emptyList;
 
 import java.util.List;
+
+import mattmunz.cli.commandline.CommandLine;
+import mattmunz.cli.commandline.Option;
+import mattmunz.cli.commandline.Parameter;
+import mattmunz.cli.commandline.Parser;
 
 public class ExampleCLI
 {

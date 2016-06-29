@@ -1,4 +1,4 @@
-package mattmunz.cli;
+package mattmunz.cli.commandline;
 
 /**
  * A command line is comprised of a command and an ordered list of space-delimited arguments. 

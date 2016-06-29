@@ -1,4 +1,5 @@
-package mattmunz.cli;
+package mattmunz.cli.commandline;
+
 
 public class Parameter<V> implements Argument
 {

@@ -1,4 +1,4 @@
-package mattmunz.cli;
+package mattmunz.cli.commandline;
 
 import static java.util.Arrays.asList; 
 import static java.util.Collections.emptyList;
@@ -8,6 +8,11 @@ import static org.junit.Assert.assertTrue;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+
+import mattmunz.cli.commandline.CommandLine;
+import mattmunz.cli.commandline.Option;
+import mattmunz.cli.commandline.Parameter;
+import mattmunz.cli.commandline.Parser;
 
 import org.junit.Test;
 

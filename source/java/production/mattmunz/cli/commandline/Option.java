@@ -1,4 +1,4 @@
-package mattmunz.cli;
+package mattmunz.cli.commandline;
 
 /**
  * A model of the option itself which does not include any associated parameter value. For 

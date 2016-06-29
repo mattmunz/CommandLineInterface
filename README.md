@@ -22,7 +22,7 @@ level of complexity in command line syntax.
 ## TODO 
 
 * Describe the motivations for this project
-* Considering integrating with one of the many CLI libraries out there
+* Consider integrating with one of the many CLI libraries out there
 * Add user documentation
 
 ## Contact

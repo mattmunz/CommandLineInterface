@@ -1,6 +1,6 @@
-package mattmunz.cli;
+package mattmunz.cli.commandline;
 
-import static java.util.Optional.ofNullable; 
+import static java.util.Optional.ofNullable;   
 
 import java.util.ArrayList;
 import java.util.List; 
@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
-import com.google.common.collect.Range;
-
 import mattmunz.Converter;
+
+import com.google.common.collect.Range;
 
 public class CommandLine
 {

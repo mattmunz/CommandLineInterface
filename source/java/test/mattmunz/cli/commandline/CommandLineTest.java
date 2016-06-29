@@ -1,4 +1,4 @@
-package mattmunz.cli;
+package mattmunz.cli.commandline;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyMap;
@@ -6,6 +6,9 @@ import static java.util.Collections.emptySet;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
+
+import mattmunz.cli.commandline.CommandLine;
+import mattmunz.cli.commandline.Parameter;
 
 import org.junit.Test;
 

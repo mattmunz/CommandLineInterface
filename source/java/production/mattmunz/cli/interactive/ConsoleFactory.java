@@ -7,9 +7,9 @@ import java.io.Console;
 /**
  * A helper designed for use with {@link Shell}. 
  */
-class ConsoleFactory
+public class ConsoleFactory
 {
-  Console getSystemConsole()
+  public Console getSystemConsole()
   {
     Console console = System.console();
 

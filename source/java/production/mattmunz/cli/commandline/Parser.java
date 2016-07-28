@@ -90,6 +90,7 @@ public class Parser
     }
       
     optionValues.put(lastOption.get(), (Parameter<?>) argument);
+    
     return empty(); 
 	}
 	

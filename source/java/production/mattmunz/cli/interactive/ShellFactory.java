@@ -1,17 +1,8 @@
 package mattmunz.cli.interactive;
 
-import static java.util.Arrays.asList;
-
 import java.io.Console;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.util.List;
-import java.util.Optional;
-
-import mattmunz.cli.commandline.CommandLine;
-import mattmunz.cli.commandline.Option;
-import mattmunz.cli.commandline.Parser;
 
 public abstract class ShellFactory
 {
@@ -20,7 +11,7 @@ public abstract class ShellFactory
   private final String consoleName;
   private final String helpCommandName;
   private final Class<?> resourceClass;
-
+  private final FileSystem fileSystem = FileSystems.getDefault();
   
   protected ShellFactory(Class<?> resourceClass, String defaultLogsDirectoryName, 
                          String logFileName, String consoleName, String helpCommandName)
@@ -36,21 +27,28 @@ public abstract class ShellFactory
 
   public Shell getShell(String[] arguments) 
   {
-    Option scriptOption = new Option('s', "script", true);
-    Option logsOption = new Option('l', "logsDirectory", true);
-    List<Option> options = asList(scriptOption, logsOption);
+    return getShell(getInteractiveCommandLine(arguments, 0, 4));
+  }
 
-    FileSystem fileSystem = FileSystems.getDefault();
+  public Shell getShell(InteractiveCommandLine commandLine)
+  {
+    ShellEnvironment shellEnvironment
+      = new ShellEnvironment(resourceClass, commandLine, logFileName);
 
-    Path defaultLogsPath = fileSystem.getPath(defaultLogsDirectoryName).toAbsolutePath();
+    CommandInterpreter interpreter = getInterpreter(shellEnvironment.getConsole(), fileSystem);
     
-    CommandLine commandLine = new Parser(options, 0, 4).parse(arguments);
-    Path logsPath = commandLine.getOptionValue(logsOption, Path.class).orElse(defaultLogsPath);
-    Optional<String> scriptPath = commandLine.getOptionValue(scriptOption, String.class);
+    return new Shell(shellEnvironment, 
+                     new InterpreterContext(interpreter, consoleName, helpCommandName));
+  }
+
+  private InteractiveCommandLine 
+    getInteractiveCommandLine(String[] arguments, int minimumArgumentCount, 
+                              int maximumArgumentCount)
+  {
+    InteractiveCommandLineParser parser 
+      = new InteractiveCommandLineParser(minimumArgumentCount, maximumArgumentCount, 
+                                         defaultLogsDirectoryName, fileSystem);
     
-    Console console = new ConsoleFactory().getSystemConsole();
-    
-    return new Shell(getInterpreter(console, fileSystem), resourceClass, console, logsPath, 
-                     logFileName, scriptPath, consoleName, helpCommandName);
+    return parser.parse(arguments);
   } 
 }
